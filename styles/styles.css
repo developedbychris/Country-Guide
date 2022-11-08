@@ -39,6 +39,16 @@ body{
     -webkit-box-shadow: 10px 9px 15px 0px rgba(0,0,0,0.32);
     -moz-box-shadow: 10px 9px 15px 0px rgba(0,0,0,0.32);
 }
+#g-maps-icon{
+    max-width: 40%;
+    max-height: 40%;
+}
+#g-maps-icon:hover{
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    -moz-filter: invert(100%);
+    transition: 0.2s;
+}
 #error-info{
     display: none;
 }

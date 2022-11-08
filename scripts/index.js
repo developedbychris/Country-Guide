@@ -76,7 +76,7 @@ try {
 	        //Captial
 	        const countryCapital = document.createElement('p')
 	        countryCapital.innerHTML = `<strong>Capital</strong>: ${country[0].capital}`
-	        countryCapital.setAttribute('class', 'h4 info text-lg-start text-sm-center ms-lg-5 ps-lg-5 mb-4')
+	        countryCapital.setAttribute('class', 'h4 info text-lg-start text-sm-center mt-3 ms-lg-5 ps-lg-5 mb-4')
 	        divRow.appendChild(countryCapital)
 	        
 	        //Continent

@@ -1,0 +1,63 @@
+body{
+    background-color: rgb(74, 96, 156);
+}
+
+#input-wrapper{
+    background-color: rgb(240, 249, 255);
+    border-radius: 15px;
+    box-shadow: 10px 9px 15px -1px rgba(0,0,0,0.32);
+    -webkit-box-shadow: 10px 9px 15px -1px rgba(0,0,0,0.32);
+    -moz-box-shadow: 10px 9px 15px -1px rgba(0,0,0,0.32);
+}
+
+#country-input{
+   width: 70%;
+   border: none;
+   outline: none;
+   background-color: transparent;
+   text-align: center;
+   border-bottom: 2px solid rgb(74, 96, 156);
+   border-radius: 6px;
+   caret-color: rgb(74, 96, 156)
+}
+#search-btn{
+    width: auto;
+}
+::placeholder{
+    text-align: center;
+}
+#reset-btn:hover{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+}
+#flag{
+    max-width: 40%;
+    max-height: 40%;
+    display: block;
+    box-shadow: 10px 9px 15px 0px rgba(0,0,0,0.32);
+    -webkit-box-shadow: 10px 9px 15px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: 10px 9px 15px 0px rgba(0,0,0,0.32);
+}
+#error-info{
+    display: none;
+}
+#footer{
+    text-decoration: none;
+    color: white;
+}
+#footer:hover{
+    color: black;
+    transition: 0.2s;
+}
+#git{
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    -moz-filter: invert(100%);
+    transition: 0.2s;
+}
+#git:hover{
+    filter: invert(1%);
+    -webkit-filter: invert(1%);
+    -moz-filter: invert(1%);
+}

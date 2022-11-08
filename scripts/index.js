@@ -57,12 +57,22 @@ try {
 			
 			
 
-		//Population
+			//Population
 	        const countryPop = document.createElement('p')
 	        countryPop.innerHTML = `<strong>Population</strong>: ${country[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
 	        countryPop.setAttribute('class', 'h4 info text-sm-center mb-4')
 	        divRow.appendChild(countryPop)
-
+			//Google Maps
+			const mapsAttribute = document.createElement('a')
+			divRow.appendChild(mapsAttribute)
+			const googleMapsIcon = document.createElement('img')
+			mapsAttribute.appendChild(googleMapsIcon)
+			mapsAttribute.href = country[0].maps.googleMaps
+			mapsAttribute.target = '_blank'
+			googleMapsIcon.src = 'imgs/google-maps.png'
+			googleMapsIcon.setAttribute('id', 'g-maps-icon')
+			googleMapsIcon.setAttribute('class', 'mx-auto')
+			
 	        //Captial
 	        const countryCapital = document.createElement('p')
 	        countryCapital.innerHTML = `<strong>Capital</strong>: ${country[0].capital}`

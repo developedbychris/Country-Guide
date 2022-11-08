@@ -23,7 +23,7 @@ try {
 	        const country = await response.json()
 	        userInput.value = ''
 	        
-			
+			console.log(country[0])
 	        //Flag
 	        const countryFlag = document.createElement('img')
 	        divRow.appendChild(countryFlag)
@@ -38,6 +38,31 @@ try {
 	        countryActualName.setAttribute('id', 'country-name')
 	        divRow.appendChild(countryActualName)
 	        
+			//Toggle Button
+			let toggle = true
+			const toggleBtn = document.createElement('button')
+			toggleBtn.innerText = `View Coat of Arms`
+			toggleBtn.setAttribute('class', 'btn btn-info ms-2')
+			countryActualName.appendChild(toggleBtn)
+			toggleBtn.addEventListener('click', ()=>{
+				toggle = !toggle
+				if(toggle){
+					countryFlag.src = country[0].flags.png
+					toggleBtn.innerText = `View Coat of Arms`
+				} else{
+					countryFlag.src = country[0].coatOfArms.png
+					toggleBtn.innerText = `View Country Flag`
+				}
+			})
+			
+			
+
+		//Population
+	        const countryPop = document.createElement('p')
+	        countryPop.innerHTML = `<strong>Population</strong>: ${country[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+	        countryPop.setAttribute('class', 'h4 info text-sm-center mb-4')
+	        divRow.appendChild(countryPop)
+
 	        //Captial
 	        const countryCapital = document.createElement('p')
 	        countryCapital.innerHTML = `<strong>Capital</strong>: ${country[0].capital}`
@@ -50,25 +75,34 @@ try {
 	        countryContinent.setAttribute('class', 'h4 info text-lg-end text-sm-center me-lg-5 pe-lg-5 mb-4')
 	        divRow.appendChild(countryContinent)
 	        
-	        //Population
-	        const countryPop = document.createElement('p')
-	        countryPop.innerHTML = `<strong>Population</strong>: ${country[0].population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
-	        countryPop.setAttribute('class', 'h4 info text-lg-start text-sm-center ms-lg-5 ps-lg-5 mb-4')
-	        divRow.appendChild(countryPop)
 	
 	        //Currency
 	        const countryCurrency = document.createElement('p')
 	        countryCurrency.innerHTML = `<strong>Currency</strong>: ${country[0].currencies[Object.keys(country[0].currencies)].name} -
 	         ${Object.keys(country[0].currencies)[0]} - ${country[0].currencies[Object.keys(country[0].currencies)].symbol} `
-	        countryCurrency.setAttribute('class', 'h4 info text-lg-end text-sm-center me-lg-5 pe-lg-5 mb-4')
+	        countryCurrency.setAttribute('class', 'h4 info text-lg-start text-sm-center ms-lg-5 ps-lg-5 mb-4')
 	        divRow.appendChild(countryCurrency)
 	        
 	        //Languages
 	        const countryLang = document.createElement('p')
 	        countryLang.innerHTML = `<strong>Common Languages</strong>: ${Object.values(country[0].languages).join(', ')}`
-	        countryLang.setAttribute('class', 'h4 info text-lg-start text-sm-center ms-lg-5 ps-lg-5 mb-4')
+	        countryLang.setAttribute('class', 'h4 info text-lg-end text-sm-center me-lg-5 pe-lg-5 mb-4')
 	        divRow.appendChild(countryLang)
 	        
+			//Landlocked?
+			const isLandlocked = document.createElement('p')
+			if(country[0].landlocked === true){
+				isLandlocked.innerHTML = `<strong>Landlocked</strong>: Yes`
+			} else{
+				isLandlocked.innerHTML = `<strong>Landlocked</strong>: No`
+			}
+			isLandlocked.setAttribute('class', 'h4 info text-lg-start text-sm-center ms-lg-5 ps-lg-5 mb-4')
+			divRow.appendChild(isLandlocked)
+			//Side Of the road
+			const countryRoad = document.createElement('p')
+			countryRoad.innerHTML = `<strong>Which Side of the Road To Drive</strong>: ${(Object.values(country[0].car)[1])[0].toUpperCase()+Object.values(country[0].car)[1].slice(1)}`
+			countryRoad.setAttribute('class', 'h4 info text-lg-end text-sm-center me-lg-5 pe-lg-5 mb-4')
+			divRow.appendChild(countryRoad)
 	    } else{
 	        throw new Error('Failed to get country, try again.')
 	    }

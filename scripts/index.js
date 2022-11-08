@@ -2,6 +2,29 @@
 const userInput = document.querySelector('#country-input')
 const searchBtn = document.querySelector('#search-btn')
 const divRow = document.querySelector('#info')
+let browserName
+function fnBrowserDetect(){
+                 
+	let userAgent = navigator.userAgent;
+	
+	
+	if(userAgent.match(/chrome|chromium|crios/i)){
+		browserName = "chrome";
+	  }else if(userAgent.match(/firefox|fxios/i)){
+		browserName = "firefox";
+	  }  else if(userAgent.match(/safari/i)){
+		browserName = "safari";
+	  }else if(userAgent.match(/opr\//i)){
+		browserName = "opera";
+	  } else if(userAgent.match(/edg/i)){
+		browserName = "edge";
+	  }else{
+		browserName="No browser detection";
+	  }
+	
+	        
+} 
+
 
 searchBtn.addEventListener('click', async ()=>{
     let countryName = userInput.value
@@ -23,10 +46,15 @@ try {
 	        const country = await response.json()
 	        userInput.value = ''
 	        
+			fnBrowserDetect()
 	        //Flag
 	        const countryFlag = document.createElement('img')
 	        divRow.appendChild(countryFlag)
-	        countryFlag.src = country[0].flags.svg
+	        if(browserName == 'safari'){
+				countryFlag.src = country[0].flags.png 
+			} else{
+				countryFlag.src = country[0].flags.svg
+			}
 	        countryFlag.setAttribute('id', 'flag')
 	        countryFlag.setAttribute('class', 'mx-auto')
 	        

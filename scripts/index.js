@@ -42,7 +42,7 @@ try {
 			let toggle = true
 			const toggleBtn = document.createElement('button')
 			toggleBtn.innerText = `View Coat of Arms`
-			toggleBtn.setAttribute('class', 'btn btn-info ms-2')
+			toggleBtn.setAttribute('class', 'btn btn-secondary ms-2')
 			countryActualName.appendChild(toggleBtn)
 			toggleBtn.addEventListener('click', ()=>{
 				toggle = !toggle
